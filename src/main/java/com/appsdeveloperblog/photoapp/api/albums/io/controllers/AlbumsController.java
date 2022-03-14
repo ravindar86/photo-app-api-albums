@@ -34,9 +34,10 @@ public class AlbumsController {
                 MediaType.APPLICATION_XML_VALUE,
             })
     public List<AlbumResponseModel> userAlbums(@PathVariable String id) {
-
+        logger.info("Inside userAlbums..");
         List<AlbumResponseModel> returnValue = new ArrayList<>();
-        
+
+        logger.info("Before calling getAlbums...");
         List<AlbumEntity> albumsEntities = albumsService.getAlbums(id);
         
         if(albumsEntities == null || albumsEntities.isEmpty())
